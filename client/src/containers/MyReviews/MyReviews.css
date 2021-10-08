@@ -1,0 +1,38 @@
+#my-reviews {
+    margin: 6% 13% 10% 13%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 2%;
+    grid-row-gap: 2%;
+}
+#single-review-card {
+    min-height: 400px;
+    max-height: 400px;
+    min-width: 200px;
+    max-width: 200px;
+}
+.img-thumbnail {
+    padding: .25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    max-width: 100%;
+    display: block;
+    height: auto;
+    margin: auto;
+    margin-bottom: 6%;
+}
+#my-reviews .card-text:last-child {
+    margin-bottom: 0;
+    margin-top: 18%;
+    font-size: 12pt;
+}
+#my-reviews .card-title {
+    margin-bottom: .75rem;
+    min-height: 200px;
+    max-height: 200px;
+    font-size: 13pt;
+}
+div.card-title.h5 {
+    font-size: 13pt;
+}

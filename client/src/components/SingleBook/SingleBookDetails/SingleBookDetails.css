@@ -1,0 +1,112 @@
+.single-book {
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 300px;
+    margin: 2% 10% 1% 10%;
+    padding: 0;
+    max-width: 82.5rem;
+    min-height: 41rem;
+}
+.single-book .single-book-image {
+    position: relative;
+    padding-left: .9375rem;
+    padding-right: .9375rem;
+    float: left;
+    top: 0.7rem;
+}
+.single-book img {
+    margin: 36px auto 0;
+    max-height: 390px;
+    max-width: 290px;
+    min-height: 390px;
+    min-width: 290px;
+}
+.single-book .single-book-info {
+    width: 55.66667%;
+    position: relative;
+    padding-left: .9375rem;
+    padding-right: .9375rem;
+    float: left;
+    margin-top: 36px;
+}
+.single-book p.single-book-id {
+    display: block;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-right: 10px;
+    font-size: 10pt;
+    line-height: 34px;
+}
+.single-book h1 {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: 10px;
+    margin-top: 0;
+    font-size: 22pt;
+}
+.single-book h2 {
+    margin: 0 0 2% 0;
+    font-size: 14pt;
+}
+.badge {
+    margin-bottom: 3%;
+}
+.free i {
+    font-weight: bold;
+    color: #28a745;;
+}
+.borrowed i {
+    font-weight: bold;
+    color: #dc3545;;
+}
+.unlisted i {
+    font-weight: bold;
+    color: #6c757d;
+}
+.single-book .single-book-details {
+    margin: 3% 0 3% 0;
+}
+.single-book .single-book-details p {
+    margin: 1.5% 0 0 0;
+    font-size: 13pt;
+}
+.single-book .single-book-description p {
+    text-align: justify;
+    margin: 35px 0px 0px 0;
+}
+div.list-group-horizontal {
+    flex-direction: row;
+    display: grid;
+    grid-template-columns: 33.3333% 33.3333% 33.3333%;
+    cursor: pointer;
+    margin-top: 6.5%;
+    text-align: center;
+    background-color: #F8F8FF;
+    border-radius: 0;
+}
+.single-book-btn {
+    margin-top: 5%;
+}
+.single-book-btn button {
+    padding: 2% 7% 2% 7%;
+}
+.list-group-horizontal>.list-group-item {
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.list-group-horizontal div { 
+    border-radius: 0;
+    border: none;
+    border-bottom: 3px solid #c8c7cc;
+}
+.list-group-horizontal div:hover { 
+    color: #007bff;
+    background-color: white;
+    border-radius: 0;
+    border-color:  #007bff;
+}
+.list-group-horizontal div:active {
+    font-weight: bold;
+    border-radius: 0;
+}

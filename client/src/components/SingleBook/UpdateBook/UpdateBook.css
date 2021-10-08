@@ -1,0 +1,81 @@
+.form-container.edit-book {
+    z-index: 999999999;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;    text-align: center;
+    min-width: 600px;
+    padding: 10px 30px 10px 30px;
+    right: 25%;
+    top: 2%;
+    box-shadow: 0 7px 14px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgb(0 0 0);
+    background-clip: border-box;
+}
+div.show-book-container.col-sm-10 {
+    display: block;
+    text-align: center;
+}
+div.show-book-container > .form-check {
+    position: relative;
+    left: 9%;
+}
+#invalid-input {
+    border: 2px solid  #dc3545;
+}
+#valid-label {
+    color: #20c997;
+    font-weight: bold;
+}
+#invalid-label {
+    color: #dc3545;
+}
+.custom-control-label {
+    font-size: 13pt;
+}
+.checkboxes-and-radios {
+    width: 280px;
+    padding: 16px;
+    margin: auto;
+}
+.checkboxes-and-radios input {
+    display: none;
+}
+.checkboxes-and-radios label {
+    cursor: pointer;
+    padding-right: 50px;
+    position: relative;
+    display: block;
+
+}
+.checkboxes-and-radios input[type="radio"] {
+    position: absolute;
+    visibility: hidden !important;
+}
+.checkboxes-and-radios input[type="radio"]+label:before,
+.checkboxes-and-radios input[type="radio"]+label:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-top: -7.5px;
+    box-sizing: border-box;
+}
+.checkboxes-and-radios input[type="radio"]+label:before {
+    width: 30px;
+    height: 15px;
+    right: 0px;
+    background: #fff;
+    border: 1px solid #bbb9b5;
+    border-radius: 15px;
+}
+.checkboxes-and-radios input[type="radio"]+label:after {
+    width: 15px;
+    height: 15px;
+    right: 15px;
+    background: #a09d9d;
+    border-radius: 50%;
+    transition: all 200ms ease-out;
+}
+.checkboxes-and-radios input[type="radio"]:checked+label:after {
+    right: 0px;
+    background: #20c997;
+}

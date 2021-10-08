@@ -1,0 +1,88 @@
+.deleted-review {
+    color: #989898;
+}
+.deleted-review .fa-thumbs-down {
+    color:  #989898;
+    cursor: default;
+}
+.deleted-review .fa-thumbs-up {
+    color:  #989898;
+    cursor: default;
+}
+.review-info > p {
+    margin-bottom: 1%;
+}
+.votes {
+    margin-bottom: 4%;
+    margin-top: 7%;
+}
+.fa-thumbs-down, .fa-thumbs-up {
+    font-size: 14pt;
+    cursor: pointer;
+    float: none;
+}
+.fa-thumbs-down {
+    margin: 0 2% 0 2%;
+    color:  #dc3545;
+}
+.fa-thumbs-up {
+    margin: 0 2% 0 2%;
+    color: #28a745;
+}
+button.create-review-btn.btn.btn-primary.btn-lg {
+    margin: 0 0 3% 0;
+    position: relative;
+    left: 33.3333%;
+}
+span.badge.badge-secondary {
+    margin-bottom: 0;
+}
+.input-group .show-radio {
+    margin-top: 3%;
+}
+.checkboxes-and-radios {
+    width: 280px;
+    padding: 16px;
+    margin: auto;
+}
+.checkboxes-and-radios input {
+    display: none;
+}
+.checkboxes-and-radios label {
+    cursor: pointer;
+    padding-right: 50px;
+    position: relative;
+    display: block;
+}
+.checkboxes-and-radios input[type="radio"] {
+    position: absolute;
+    visibility: hidden !important;
+}
+.checkboxes-and-radios input[type="radio"]+label:before,
+.checkboxes-and-radios input[type="radio"]+label:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-top: -7.5px;
+    box-sizing: border-box;
+}
+.checkboxes-and-radios input[type="radio"]+label:before {
+    width: 30px;
+    height: 15px;
+    right: 0px;
+    background: #fff;
+    border: 1px solid #bbb9b5;
+    border-radius: 15px;
+}
+.checkboxes-and-radios input[type="radio"]+label:after {
+    width: 15px;
+    height: 15px;
+    right: 15px;
+    background: #a09d9d;
+    border-radius: 50%;
+    transition: all 200ms ease-out;
+}
+.checkboxes-and-radios input[type="radio"]:checked+label:after {
+    right: 0px;
+    background: #20c997;
+}

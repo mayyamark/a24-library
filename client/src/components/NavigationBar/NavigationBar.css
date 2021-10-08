@@ -1,0 +1,21 @@
+.background-purple {
+    background-color: purple;
+}
+.pills-outline-purple-anm .nav-item .nav-link.active {
+    border: 2px solid #9c27b0;
+    color: #9c27b0;
+    background-color: transparent;
+    -webkit-animation-name: outline; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: outline;
+    animation-duration: 4s;
+}
+@-webkit-keyframes outline {
+    from {border: 2px solid #9c27b0; color: #9c27b0;}
+    to {border: 2px solid #f48fb1; color: #f48fb1;}
+}
+
+@keyframes outline {
+    from {border: 2px solid #9c27b0; color: #9c27b0;}
+    to {border: 2px solid #f48fb1; color: #f48fb1;}
+}

@@ -1,0 +1,73 @@
+#all-books-container {
+    max-width: 900px;
+    text-align: -webkit-center;
+    margin: auto;
+    padding: 8% 0 0 0;
+}
+.free i {
+    font-weight: bold;
+    color: #28a745;
+}
+.borrowed i {
+    font-weight: bold;
+    color: #dc3545;;
+}
+.unlisted i {
+    font-weight: bold;
+    color: #6c757d;
+}
+.small-book {
+    min-height: 250px;
+    max-width: 800px;
+    margin-top: 25px;
+}
+.small-book hr {
+    margin: 3% 0 1.5% 0;
+}
+.small-book .small-book-image {
+    padding-left: .9375rem;
+    padding-right: .9375rem;
+    float: left;
+}
+.small-book img {
+    max-width: 170px;
+    max-height: 250px;
+    min-width: 170px;
+    min-height: 250px;
+}
+.small-book .small-book-info {
+    min-height: 250px;
+    max-width: 425px;
+    margin-left: 15%;
+    text-align: left;
+}    
+.small-book .small-book-info h2 {
+    font-size: 1.8rem;
+} 
+.small-book .small-book-info h4 {
+    margin: 4% 0 4% 0;
+    font-size: 1.4rem;
+}
+.small-book .small-book-info p {
+    margin-bottom: 8%;
+    font-size: 13pt;
+}
+.small-book button {
+    padding: .65rem 1.4rem .65rem;
+}
+.book-plus {
+    float: left;
+    margin-top: 4%;
+    font-size: 14pt;
+}
+.create-book-btn {
+    float: right;
+    margin-top: 2%;
+    margin-right: 1%;
+}
+#more-info.nav-link {
+    padding: 0; 
+}
+div.justify-content-center.nav {
+    margin-bottom: 1%;
+}

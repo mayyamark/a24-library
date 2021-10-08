@@ -1,0 +1,15 @@
+#all-reviews-container {
+    text-align: center;
+    padding: 3% 0 0 0;
+}
+.create-review-btn {
+    margin-top: 2%;
+    margin-bottom: 4%;
+    position: relative;
+    left: 38.5%;
+}
+i.review-plus {
+    font-size: 14pt;
+    float: left;
+    margin-top: 4%;
+}

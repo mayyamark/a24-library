@@ -1,0 +1,24 @@
+.dropdown {
+    float: right;
+    margin-top: 2%;
+}
+#dropdown-basic > #book-dropdown {
+    font-size: 14pt;
+}
+#dropdown-basic {
+    font-size: 14pt;
+    border: none;
+}
+#book-dropdown > #dropdown-basic:hover {
+    color: black;;
+    background-color: white;
+}
+#book-dropdown > #dropdown-basic:focus {
+    color: black;;
+    background-color: white;
+}
+i.admin-options {
+    float: left;
+    font-size: 14pt;
+    margin-top: 4%;
+}

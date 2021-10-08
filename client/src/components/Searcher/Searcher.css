@@ -1,0 +1,17 @@
+.mb-3 {
+    margin-top: 1rem;
+}
+.book-search {
+    width: 50%;
+    display: block;
+    margin: 0 auto 0 auto;
+    margin-top: 4%;
+    margin-bottom: 2%;
+}
+.fa.fa-search {
+    font-size: 15pt;
+    float: none;
+}
+.form-check label {
+    font-size: 13pt;
+}

@@ -1,0 +1,12 @@
+.auth-button {
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    background-color: white;
+    color: #007bff;
+    margin-top: 2%;
+}
+.auth-button:active, .auth-button:focus {
+    outline: 0;
+    border: none;
+}

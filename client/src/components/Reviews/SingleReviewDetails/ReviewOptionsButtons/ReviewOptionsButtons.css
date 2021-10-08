@@ -1,0 +1,32 @@
+.dropdown {
+    float: right;
+    margin-top: 2%;
+}
+#review-dropdown {
+    margin-top: 0;
+    float: none;
+    position: relative;
+    left: 45%;
+}
+#review-dropdown > #dropdown-basic {
+    font-size: 9pt;
+    border: none;
+    margin-top: 0;
+    color: #212529;
+}
+#review-dropdown > #dropdown-basic:hover {
+    color: #007bff;;
+    background-color: white;
+}
+#review-dropdown > #dropdown-basic:focus {
+    color: #007bff;;
+    background-color: white;
+}
+#review-dropdown > button {
+    padding-top: 0;
+}
+i.review-options {
+    float: left;
+    font-size: 14pt;
+    margin-top: 4%;
+}
