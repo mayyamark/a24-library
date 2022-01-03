@@ -1,6 +1,31 @@
-START TRANSACTION;
+-- MySQL Workbench Forward Engineering
 
-USE `library`;
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema library
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema library
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `library` DEFAULT CHARACTER SET utf8mb4 ;
+USE `library` ;
+
+-- -----------------------------------------------------
+-- Table `library`.`authors`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`authors` (
+  `author_id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`author_id`))
+ENGINE = InnoDB;
 
 INSERT INTO `authors` (`author_id`, `first_name`, `last_name`) VALUES
 (1, 'Agatha', 'Christie'),
@@ -33,10 +58,14 @@ INSERT INTO `authors` (`author_id`, `first_name`, `last_name`) VALUES
 (28, 'Natalie', 'Haynes'),
 (29, 'Angela', 'Duckworth');
 
-INSERT INTO `book_statuses` (`status_id`, `status`) VALUES
-(1, 'free'),
-(2, 'borrowed'),
-(3, 'unlisted');
+-- -----------------------------------------------------
+-- Table `library`.`generes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`generes` (
+  `genre_id` INT NOT NULL AUTO_INCREMENT,
+  `genre` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`genre_id`))
+ENGINE = InnoDB;
 
 INSERT INTO `generes` (`genre_id`, `genre`) VALUES
 (1, 'fiction'),
@@ -47,6 +76,53 @@ INSERT INTO `generes` (`genre_id`, `genre`) VALUES
 (6, 'children\'s literature'),
 (7, 'biography'),
 (8, 'self-help');
+
+-- -----------------------------------------------------
+-- Table `library`.`book_statuses`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`book_statuses` (
+  `status_id` INT NOT NULL AUTO_INCREMENT,
+  `status` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`status_id`))
+ENGINE = InnoDB;
+
+INSERT INTO `book_statuses` (`status_id`, `status`) VALUES
+(1, 'free'),
+(2, 'borrowed'),
+(3, 'unlisted');
+
+-- -----------------------------------------------------
+-- Table `library`.`books`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`books` (
+  `book_id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `image` text NOT NULL,
+  `description` text NOT NULL,
+  `author_id` INT NOT NULL,
+  `genre_id` INT NOT NULL,
+  `status_id` INT NOT NULL,
+  `is_deleted` TINYINT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`book_id`),
+  INDEX `fk_books_authors_idx` (`author_id` ASC),
+  INDEX `fk_books_generes1_idx` (`genre_id` ASC),
+  INDEX `fk_books_book_statuses1_idx` (`status_id` ASC),
+  CONSTRAINT `fk_books_authors`
+    FOREIGN KEY (`author_id`)
+    REFERENCES `library`.`authors` (`author_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_books_generes1`
+    FOREIGN KEY (`genre_id`)
+    REFERENCES `library`.`generes` (`genre_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_books_book_statuses1`
+    FOREIGN KEY (`status_id`)
+    REFERENCES `library`.`book_statuses` (`status_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 INSERT INTO `books` (`book_id`, `name`, `image`, `description`, `author_id`, `genre_id`, `status_id`, `is_deleted`) VALUES
 (1, 'Pippi Longstocking', 'https://upload.wikimedia.org/wikipedia/en/7/78/L%C3%A5ngstrump_G%C3%A5r_Ombord.jpeg', 'The beloved story of a spunky young girl and her hilarious escapades. \"A rollicking story.\"--The Horn Book Tommy and his sister Annika have a new neighbor, and her name is Pippi Longstocking. She has crazy red pigtails, no parents to tell her what to do, a horse that lives on her porch, and a flair for the outrageous that seems to lead to one adventure after another!', 3, 1, 1, 0),
@@ -95,9 +171,38 @@ INSERT INTO `books` (`book_id`, `name`, `image`, `description`, `author_id`, `ge
 (44, 'Pandora\'s Jar', 'https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/5098/9781509873128.jpg', 'Stories of gods and monsters are the mainstay of epic poetry and Greek tragedy, from Homer to Aeschylus, Sophocles and Euripides, from the Trojan War to Jason and the Argonauts. And still, today, a wealth of novels, plays and films draw their inspiration from stories first told almost three thousand years ago. But modern tellers of Greek myth have usually been men, and have routinely shown little interest in telling women\'s stories. And when they do, those women are often painted as monstrous, vengeful or just plain evil. But Pandora - the first woman, who according to legend unloosed chaos upon the world - was not a villain, and even Medea and Phaedra have more nuanced stories than generations of retellings might indicate.', 28, 4, 1, 0),
 (45, 'Grit', 'https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/7850/9781785040207.jpg', 'In this must-read for anyone seeking to succeed, pioneering psychologist Angela Duckworth takes us on an eye-opening journey to discover the true qualities that lead to outstanding achievement. Winningly personal, insightful and powerful, Grit is a book about what goes through your head when you fall down, and how that - not talent or luck - makes all the difference.', 29, 8, 1, 0);
 
+
+-- -----------------------------------------------------
+-- Table `library`.`ban_statuses`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`ban_statuses` (
+  `ban_status_id` INT NOT NULL AUTO_INCREMENT,
+  `is_banned` TINYINT NOT NULL,
+  `description` VARCHAR(45) NULL,
+  PRIMARY KEY (`ban_status_id`))
+ENGINE = InnoDB;
+
 INSERT INTO `ban_statuses` (`ban_status_id`, `is_banned`, `description`) VALUES
 (1, 1, 'banned by admin mayya'),
 (2, 1, 'banned by admin admin');
+
+-- -----------------------------------------------------
+-- Table `library`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`users` (
+  `user_id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(75) NOT NULL,
+  `is_admin` TINYINT NULL,
+  `ban_status_id` INT NULL,
+  PRIMARY KEY (`user_id`),
+  INDEX `fk_users_ban_statuses1_idx` (`ban_status_id` ASC),
+  CONSTRAINT `fk_users_ban_statuses1`
+    FOREIGN KEY (`ban_status_id`)
+    REFERENCES `library`.`ban_statuses` (`ban_status_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `is_admin`, `ban_status_id`) VALUES
 (1, 'admin', '$2b$10$Ub9V/Qx/jJn7F38HTRtwR.XlPsQ2Cjm.pOnJ15eKmYMJ20GsCyFaK', 1, NULL),
@@ -111,18 +216,29 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `is_admin`, `ban_status_
 (9, 'krasi', '$2b$10$Jlojv69t7jYQZHlc.b5/fOT9EzZdCMoe5GNWNQtwC7.Sr8OqKniZy', 0, NULL),
 (10, 'venci', '$2b$10$Q2p3XnWCHe/.f0cUOH71a.oObOpLmRE3nMyV/cdiyZIt6Ye2r75dO', 0, 2);
 
-INSERT INTO `book_rates` (`rate_id`, `book_id`, `user_id`, `rate`) VALUES
-(1, 2, 4, 5),
-(2, 32, 1, 5),
-(3, 1, 1, 4),
-(4, 8, 1, 5),
-(5, 29, 1, 3),
-(6, 31, 1, 3),
-(7, 3, 1, 5),
-(8, 35, 1, 3),
-(9, 3, 4, 3),
-(10, 2, 1, 5),
-(11, 4, 1, 4);
+-- -----------------------------------------------------
+-- Table `library`.`reviews`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`reviews` (
+  `review_id` INT NOT NULL AUTO_INCREMENT,
+  `book_id` INT NOT NULL,
+  `user_id` INT NULL,
+  `text` VARCHAR(45) NOT NULL,
+  `is_deleted` TINYINT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`review_id`),
+  INDEX `fk_reviews_books1_idx` (`book_id` ASC),
+  INDEX `fk_reviews_users1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_reviews_books1`
+    FOREIGN KEY (`book_id`)
+    REFERENCES `library`.`books` (`book_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_reviews_users1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `library`.`users` (`user_id`)
+    ON DELETE SET NULL
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 INSERT INTO `reviews` (`review_id`, `book_id`, `user_id`, `text`, `is_deleted`) VALUES
 (1, 2, 4, 'Awesome book!', 1),
@@ -150,6 +266,89 @@ INSERT INTO `reviews` (`review_id`, `book_id`, `user_id`, `text`, `is_deleted`) 
 (23, 4, 1, 'I cried while reading!', 0),
 (24, 4, 3, 'When can I borrow it?', 0),
 (25, 1, 4, 'I didn\'t like it!', 1);
+
+-- -----------------------------------------------------
+-- Table `library`.`votes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`votes` (
+  `vote_id` INT NOT NULL AUTO_INCREMENT,
+  `vote` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`vote_id`))
+ENGINE = InnoDB;
+
+INSERT INTO `votes` (`vote_id`, `vote`) VALUES
+(1, 'like'),
+(2, 'dislike');
+
+-- -----------------------------------------------------
+-- Table `library`.`user_liked_reviews`
+-- -----------------------------------------------------
+  CREATE TABLE IF NOT EXISTS `library`.`user_liked_reviews` (
+   `id` INT NOT NULL AUTO_INCREMENT,
+   `user_id` INT NULL,
+   `review_id` INT NOT NULL,
+   `vote_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_user_liked_reviews_users1_idx` (`user_id` ASC),
+  INDEX `fk_user_liked_reviews_reviews1_idx` (`review_id` ASC),
+  INDEX `fk_user_liked_reviews_votes1_idx` (`vote_id` ASC),
+  CONSTRAINT `fk_user_liked_reviews_users1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `library`.`users` (`user_id`)
+    ON DELETE SET NULL
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_liked_reviews_reviews1`
+    FOREIGN KEY (`review_id`)
+    REFERENCES `library`.`reviews` (`review_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_liked_reviews_votes1`
+    FOREIGN KEY (`vote_id`)
+    REFERENCES `library`.`votes` (`vote_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+INSERT INTO `user_liked_reviews` (`id`, `user_id`, `review_id`, `vote_id`) VALUES
+(1, 3, 1, 1),
+(2, 2, 1, 1),
+(3, 2, 2, 2),
+(4, 4, 1, 1),
+(5, 5, 1, 1),
+(6, 3, 1, 2),
+(7, 1, 14, 2),
+(8, 5, 4, 1),
+(9, 1, 1, 1),
+(10, 1, 2, 1),
+(11, 4, 4, 1),
+(12, 1, 22, 1),
+(13, 1, 25, 2),
+(14, 6, 14, 1),
+(15, 6, 4, 2);
+
+-- -----------------------------------------------------
+-- Table `library`.`history`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`history` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NULL,
+  `book_id` INT NOT NULL,
+  `borrowed` DATETIME NULL DEFAULT NULL,
+  `returned` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_history_users1_idx` (`user_id` ASC),
+  INDEX `fk_history_books1_idx` (`book_id` ASC),
+  CONSTRAINT `fk_history_users1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `library`.`users` (`user_id`)
+    ON DELETE SET NULL
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_history_books1`
+    FOREIGN KEY (`book_id`)
+    REFERENCES `library`.`books` (`book_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 INSERT INTO `history` (`id`, `user_id`, `book_id`, `borrowed`, `returned`) VALUES
 (1, 4, 2, '2020-09-07 18:46:17', '2020-10-07 18:46:40'),
@@ -187,25 +386,49 @@ INSERT INTO `history` (`id`, `user_id`, `book_id`, `borrowed`, `returned`) VALUE
 (33, 9, 3, '2020-10-30 17:17:19', NULL),
 (34, 9, 7, '2020-10-30 17:17:31', NULL);
 
-INSERT INTO `votes` (`vote_id`, `vote`) VALUES
-(1, 'like'),
-(2, 'dislike');
+-- -----------------------------------------------------
+-- Table `library`.`book_rates`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `library`.`book_rates` (
+  `rate_id` INT NOT NULL AUTO_INCREMENT,
+  `book_id` INT NOT NULL,
+  `user_id` INT NULL,
+  `rate` INT NOT NULL,
+  PRIMARY KEY (`rate_id`),
+  INDEX `fk_book_rates_books1_idx` (`book_id` ASC),
+  INDEX `fk_book_rates_users1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_book_rates_books1`
+    FOREIGN KEY (`book_id`)
+    REFERENCES `library`.`books` (`book_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_book_rates_users1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `library`.`users` (`user_id`)
+    ON DELETE SET NULL
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
-INSERT INTO `user_liked_reviews` (`id`, `user_id`, `review_id`, `vote_id`) VALUES
-(1, 3, 1, 1),
-(2, 2, 1, 1),
-(3, 2, 2, 2),
-(4, 4, 1, 1),
-(5, 5, 1, 1),
-(6, 3, 1, 2),
-(7, 1, 14, 2),
-(8, 5, 4, 1),
-(9, 1, 1, 1),
-(10, 1, 2, 1),
-(11, 4, 4, 1),
-(12, 1, 22, 1),
-(13, 1, 25, 2),
-(14, 6, 14, 1),
-(15, 6, 4, 2);
+INSERT INTO `book_rates` (`rate_id`, `book_id`, `user_id`, `rate`) VALUES
+(1, 2, 4, 5),
+(2, 32, 1, 5),
+(3, 1, 1, 4),
+(4, 8, 1, 5),
+(5, 29, 1, 3),
+(6, 31, 1, 3),
+(7, 3, 1, 5),
+(8, 35, 1, 3),
+(9, 3, 4, 3),
+(10, 2, 1, 5),
+(11, 4, 1, 4);
 
-COMMIT;
+
+CREATE SCHEMA IF NOT EXISTS `user_logout_db`;
+USE `user_logout_db` ;
+
+CREATE TABLE IF NOT EXISTS `user_logout_db`.`blacklist` (`token` VARCHAR(256) NOT NULL PRIMARY KEY);
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
