@@ -1,5 +1,5 @@
 export const DB_CONFIG = {
-  host: 'localhost',
+  host: 'mariadb',
   port: '3306',
   user: 'root',
   password: 'root',
@@ -7,7 +7,7 @@ export const DB_CONFIG = {
 };
 
 export const USER_LOGOUT_DB_CONFIG = {
-  host: 'localhost',
+  host: 'mariadb',
   port: '3306',
   user: 'root',
   password: 'root',
