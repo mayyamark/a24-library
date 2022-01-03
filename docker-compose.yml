@@ -44,6 +44,7 @@ services:
     container_name: client_container
     # environment:
     #   NODE_PATH: src
+    stdin_open: true    
     ports:
       - 3000:3000
     volumes:
