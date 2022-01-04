@@ -39,10 +39,10 @@ The main technologies that are used in this project are:
 ```bash
 ├── client
 │   ├── public
-│   │   ├── index.html
+│   │   └── index.html
 │   ├── src
 │   │   ├── common
-│   │   │   ├── **/*.js
+│   │   │   └── **/*.js
 │   │   ├── components
 │   │   │   ├── AllBooks
 │   │   │   │   ├── **/*.js
@@ -83,9 +83,9 @@ The main technologies that are used in this project are:
 │   │   │   ├── SingleBook
 │   │   │   │   ├── **/*.js
 │   │   │   │   └── **/*.css
-│   │   │   ├── UserBookActivity
-│   │   │   │   ├── **/*.js
-│   │   │   │   └── **/*.css
+│   │   │   └── UserBookActivity
+│   │   │       ├── **/*.js
+│   │   │       └── **/*.css
 │   │   ├── containers
 │   │   │   ├── AdminUsers
 │   │   │   │   ├── **/*.js
@@ -105,13 +105,13 @@ The main technologies that are used in this project are:
 │   │   │   │   └── **/*.js
 │   │   │   ├── SingleBook
 │   │   │   │   └── **/*.js
-│   │   │   ├── UserBookActivity
-│   │   │   │   ├── **/*.js
-│   │   │   │   └── **/*.css
+│   │   │   └── UserBookActivity
+│   │   │       ├── **/*.js
+│   │   │       └── **/*.css
 │   │   ├── contexts
-│   │   │   ├── **/*.js
+│   │   │   └── **/*.js
 │   │   ├── custom-hooks
-│   │   │   ├── **/*.js
+│   │   │   └── **/*.js
 │   │   ├── resources
 │   │   │   ├── **/*.css
 │   │   │   └── **/*.png
@@ -153,7 +153,8 @@ The main technologies that are used in this project are:
 │   ├── package.json
 │   ├── package-lock.json
 │   └── README.md
-└── docker-compose.yml
+├── docker-compose.yml
+└── README.md
 ```
 
 ## Running guide

@@ -96,7 +96,7 @@ server
    <details>
    <summary>Click for more details</summary>
 
-   - Needs a Bearer token.
+   - Requires a Bearer token.
 
    - Does not need a request body.
 
@@ -114,9 +114,7 @@ server
    <details>
    <summary>Click for more details</summary>
 
-   - Needs a Bearer token.
-
-   - Does not need a request body.
+   - Requires a Bearer token.
 
    - An example for a response:
 
@@ -236,15 +234,15 @@ server
 
 ### Books
 
-All of these endpoints need a Bearer token.
+All of these endpoints require a Bearer token.
 
 1.  **GET/api/books** - _Gets all of the not-hidden books with optional query parameters._
     <details>
     <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
 
-    - Available query params:
+    - Optional query params:
       - name - partial book name
       - author - partial author name
       - genre - one of: _fiction_, _criminal_, _fantasy_, _novel_, _tragedy_, _children's literature_, _biography_, _self-help_
@@ -289,7 +287,7 @@ All of these endpoints need a Bearer token.
        <details>
        <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
 
     - An example for a response:
 
@@ -465,7 +463,7 @@ All of these endpoints need a Bearer token.
        <details>
        <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
 
     - An example: `DELETE/api/books/1`
 
@@ -502,7 +500,7 @@ All of these endpoints need a Bearer token.
        <details>
        <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
 
     - An example: `GET/api/books/1`
 
@@ -527,7 +525,7 @@ All of these endpoints need a Bearer token.
        <details>
        <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
 
     - An example: `PUT/api/books/1`
 
@@ -564,7 +562,7 @@ All of these endpoints need a Bearer token.
     <details>
     <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
 
     - An example: `GET/api/books/1/rate`
 
@@ -598,17 +596,15 @@ All of these endpoints need a Bearer token.
 
 ### Book reviews
 
-All of these endpoints need a Bearer token.
+All of these endpoints require a Bearer token.
 
 1.  **GET/api/books/:id/reviews** - _Gets all of the not-deleted reviews for the given book._
     <details>
     <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
 
     - An example: `GET/api/books/2/reviews`
-
-    - Does not need a request body
 
     - An example for a response:
 
@@ -643,7 +639,7 @@ All of these endpoints need a Bearer token.
     <details>
     <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
 
     - An example: `POST/api/books/23/reviews`
 
@@ -688,7 +684,7 @@ All of these endpoints need a Bearer token.
     <details>
     <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
 
     - An example: `PUT/api/books/23/reviews/26`
 
@@ -715,7 +711,7 @@ All of these endpoints need a Bearer token.
     <details>
     <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
 
     - An example: `DELETE/api/books/23/reviews/26`
 
@@ -735,7 +731,7 @@ All of these endpoints need a Bearer token.
     <details>
     <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
 
     - An example: `PUT/api/books/4/reviews/24/votes`
 
@@ -772,7 +768,7 @@ All of these endpoints need a Bearer token.
 
 ### Admins
 
-All of these endpoints need a Bearer token. The user has to be an admin.
+All of these endpoints need a Requires token. The user has to be an admin.
 
 #### Manipulate users
 
@@ -780,7 +776,8 @@ All of these endpoints need a Bearer token. The user has to be an admin.
     <details>
     <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
+    - Requires an `Admin` role.
 
     - An example: `POST/api/admin/users/2/banstatus`
 
@@ -809,7 +806,8 @@ All of these endpoints need a Bearer token. The user has to be an admin.
     <details>
     <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
+    - Requires an `Admin` role.
 
     - An example: `POST/api/admin/users/7/role`
 
@@ -827,7 +825,8 @@ All of these endpoints need a Bearer token. The user has to be an admin.
     <details>
     <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
+    - Requires an `Admin` role
 
     - An example: `DELETE/api/admin/users/6`
 
@@ -856,9 +855,10 @@ All of these endpoints need a Bearer token. The user has to be an admin.
     <details>
     <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
+    - Requires an `Admin` role.
 
-    - Available query params:
+    - Optional query params:
 
       - name - partial book name
       - author - partial author name
@@ -903,11 +903,12 @@ All of these endpoints need a Bearer token. The user has to be an admin.
 
     </details>
 
-1.  **GET/api/books/:id** - _Gets a single book by its id._
+1.  **GET/api/admin/books/:id** - _Gets a single book by its id._
        <details>
        <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
+    - Requires an `Admin` role.
 
     - An example: `GET/api/admin/books/28`
 
@@ -933,7 +934,8 @@ All of these endpoints need a Bearer token. The user has to be an admin.
     <details>
     <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
+    - Requires an `Admin` role.
 
     - An example for a request body:
 
@@ -973,7 +975,8 @@ All of these endpoints need a Bearer token. The user has to be an admin.
     <details>
     <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
+    - Requires an `Admin` role.
 
     - An example: `GET/api/admin/books/1`
 
@@ -1008,12 +1011,12 @@ All of these endpoints need a Bearer token. The user has to be an admin.
 
       </details>
 
-1.  **DELETE/api/books/:id** - _Hides the given book from non-admin users._
+1.  **DELETE/api/admin/books/:id** - _Hides the given book from non-admin users._
        <details>
        <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
-
+    - Requires a Bearer token.
+    - Requires an `Admin` role.
     - An example: `DELETE/api/admin/books/19`
 
     - An example for a response:
@@ -1041,7 +1044,8 @@ All of these endpoints need a Bearer token. The user has to be an admin.
     <details>
     <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
+    - Requires an `Admin` role.
 
     - An example: `GET/api/admin/books/23/reviews`
 
@@ -1082,7 +1086,8 @@ All of these endpoints need a Bearer token. The user has to be an admin.
     <details>
     <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
+    - Requires an `Admin` role.
 
     - An example: `POST/api/admin/books/23/reviews`
 
@@ -1125,7 +1130,8 @@ All of these endpoints need a Bearer token. The user has to be an admin.
     <details>
     <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
+    - Requires an `Admin` role.
 
     - An example: `PUT/api/admin/books/4/reviews/17`
 
@@ -1169,7 +1175,8 @@ All of these endpoints need a Bearer token. The user has to be an admin.
     <details>
     <summary>Click for more details</summary>
 
-    - Needs a Bearer token.
+    - Requires a Bearer token.
+    - Requires an `Admin` role.
 
     - An example: `DELETE/api/books/3/reviews/14`
 
