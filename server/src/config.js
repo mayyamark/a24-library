@@ -1,16 +1,16 @@
 export const DB_CONFIG = {
-  host: 'mariadb',
+  host: process.env.DB_HOST,
   port: '3306',
-  user: 'root',
-  password: 'root',
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
   database: 'library',
 };
 
 export const USER_LOGOUT_DB_CONFIG = {
-  host: 'mariadb',
+  host: process.env.DB_HOST,
   port: '3306',
-  user: 'root',
-  password: 'root',
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
   database: 'user_logout_db',
 };
 

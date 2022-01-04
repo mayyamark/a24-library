@@ -5,7 +5,6 @@ services:
     image: mariadb
     container_name: mariadb_container
     environment:
-      # MYSQL_HOST: localhost
       MARIADB_ROOT_PASSWORD: root
     ports:
       - 3306:3306
@@ -29,8 +28,10 @@ services:
     container_name: node_server_container
     depends_on:
       - mariadb
-    # environment:
-    #   MYSQL_HOST_IP: mariadb
+    environment:
+      DB_HOST: mariadb
+      DB_USER: root
+      DB_PASSWORD: root
     ports:
       - 5000:5000
     volumes:
@@ -42,8 +43,6 @@ services:
   client:
     build: ./client
     container_name: client_container
-    # environment:
-    #   NODE_PATH: src
     stdin_open: true    
     ports:
       - 3000:3000

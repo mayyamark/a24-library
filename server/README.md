@@ -1202,6 +1202,14 @@ All of these endpoints need a Bearer token. The user has to be an admin.
 
     </details>
 
+## Environment variables
+
+| Environment Variable | Default value |
+| :------------------- | :------------ |
+| DB_HOST              | localhost     |
+| DB_USER              | root          |
+| DB_PASSWORD          | root          |
+
 ## Running Guide
 
 ### 1. Install the dependencies
