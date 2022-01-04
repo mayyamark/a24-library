@@ -422,9 +422,16 @@ INSERT INTO `book_rates` (`rate_id`, `book_id`, `user_id`, `rate`) VALUES
 (10, 2, 1, 5),
 (11, 4, 1, 4);
 
+-- -----------------------------------------------------
+-- Schema user_logout_db
+-- -----------------------------------------------------
 
 CREATE SCHEMA IF NOT EXISTS `user_logout_db`;
 USE `user_logout_db` ;
+
+-- -----------------------------------------------------
+-- Table `user_logout_db`.`blacklist`
+-- -----------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS `user_logout_db`.`blacklist` (`token` VARCHAR(256) NOT NULL PRIMARY KEY);
 
